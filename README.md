@@ -1,21 +1,18 @@
-# Android JetPack - v1.0
+# Android JetPack - v1.1
 
 
 Using for now:
 -
 Architecture:
-- Architecture Components
+- Architecture Components based
+- Data Binding
+- LifeCycle-Aware
+- LiveData
 - Room
+- ViewModel
 - Dagger
-
-UI:
--
-
-Foundation:
--
-
-Behavior:
--
+- RxJava
+- RxAndroid
 
 # What is Android Jetpack?
 -

@@ -1,17 +1,17 @@
 package me.fabiooliveira.androidjetpacksample.repository
 
-import android.arch.lifecycle.LiveData
+import io.reactivex.Flowable
 import me.fabiooliveira.androidjetpacksample.entity.Person
 import me.fabiooliveira.androidjetpacksample.persistence.dao.PersonDao
 import javax.inject.Inject
 
-class PersonRepository @Inject constructor(val personDao: PersonDao) {
+class PersonRepository @Inject constructor(private val personDao: PersonDao) {
 
-    fun createPerson(person: Person): LiveData<Long> {
+    fun createPerson(person: Person): Long {
         return personDao.insert(person)
     }
 
-    fun getAll(): LiveData<List<Person>> {
+    fun getAll(): Flowable<List<Person>> {
         return personDao.findAll()
     }
 }

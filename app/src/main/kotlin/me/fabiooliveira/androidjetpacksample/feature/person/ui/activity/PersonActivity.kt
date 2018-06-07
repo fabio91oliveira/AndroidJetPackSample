@@ -1,8 +1,9 @@
-package me.fabiooliveira.androidjetpacksample.feature.person.ui
+package me.fabiooliveira.androidjetpacksample.feature.person.ui.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import me.fabiooliveira.androidjetpacksample.R
+import me.fabiooliveira.androidjetpacksample.feature.person.ui.fragment.PersonFragment
 
 class PersonActivity : AppCompatActivity() {
 

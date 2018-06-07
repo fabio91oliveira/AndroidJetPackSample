@@ -4,7 +4,7 @@ import android.app.Application
 import dagger.Component
 import me.fabiooliveira.androidjetpacksample.di.module.MainApplicationModule
 import me.fabiooliveira.androidjetpacksample.di.module.RoomModule
-import me.fabiooliveira.androidjetpacksample.feature.person.ui.PersonFragment
+import me.fabiooliveira.androidjetpacksample.feature.person.ui.fragment.PersonFragment
 import me.fabiooliveira.androidjetpacksample.persistence.dao.PersonDao
 import me.fabiooliveira.androidjetpacksample.persistence.source.Database
 import me.fabiooliveira.androidjetpacksample.repository.PersonRepository

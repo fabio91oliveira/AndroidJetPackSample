@@ -10,6 +10,7 @@ import me.fabiooliveira.androidjetpacksample.repository.PersonRepository
 @Singleton
 class ViewModelFactory @Inject constructor(private val repository: PersonRepository) : ViewModelProvider.Factory {
 
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return if (modelClass.isAssignableFrom(PersonViewModel::class.java))
             PersonViewModel(repository) as T

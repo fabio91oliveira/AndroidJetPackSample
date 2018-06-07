@@ -6,5 +6,5 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(tableName = "persons")
 data class Person(
         @PrimaryKey
-        val id: Long,
+        val id: String,
         val name: String)

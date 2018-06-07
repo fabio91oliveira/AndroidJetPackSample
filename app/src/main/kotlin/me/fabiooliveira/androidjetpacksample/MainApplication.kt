@@ -8,7 +8,7 @@ import me.fabiooliveira.androidjetpacksample.di.module.RoomModule
 
 class MainApplication: Application() {
 
-    lateinit var mainAppComponent: MainApplicationComponent
+    private lateinit var mainAppComponent: MainApplicationComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -18,6 +18,10 @@ class MainApplication: Application() {
                 .mainApplicationModule(MainApplicationModule(this))
                 .roomModule(RoomModule(this))
                 .build()
+    }
+
+    fun getMainApplication(): MainApplicationComponent {
+        return mainAppComponent
     }
 
 }
