@@ -13,6 +13,7 @@ Architecture:
 - Dagger
 - RxJava
 - RxAndroid
+- Navigation
 
 # What is Android Jetpack?
 -

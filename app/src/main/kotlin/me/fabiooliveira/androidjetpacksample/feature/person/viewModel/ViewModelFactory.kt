@@ -14,6 +14,8 @@ class ViewModelFactory @Inject constructor(private val repository: PersonReposit
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return if (modelClass.isAssignableFrom(PersonViewModel::class.java))
             PersonViewModel(repository) as T
+        else if (modelClass.isAssignableFrom(PersonAddViewModel::class.java))
+            PersonAddViewModel(repository) as T
         else {
             throw IllegalArgumentException("ViewModel Not Found")
         }

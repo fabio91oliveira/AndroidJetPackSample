@@ -6,6 +6,7 @@ buildscript {
         rx_java_version = '2.1.14'
         rx_android_version = '2.0.2'
         dagger_version = '2.16'
+        navigation_version = '1.0.0-alpha02'
     }
     repositories {
         google()

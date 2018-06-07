@@ -10,11 +10,6 @@ class PersonActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.person_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, PersonFragment.newInstance())
-                    .commitNow()
-        }
     }
 
 }

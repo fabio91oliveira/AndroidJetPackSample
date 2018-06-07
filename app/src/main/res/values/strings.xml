@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AndroidJetPackSample</string>
+    <string name="person_add_tv_id">Identification</string>
+    <string name="person_add_tv_name">Name</string>
+    <string name="person_add_bv_add_person">Add Person</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

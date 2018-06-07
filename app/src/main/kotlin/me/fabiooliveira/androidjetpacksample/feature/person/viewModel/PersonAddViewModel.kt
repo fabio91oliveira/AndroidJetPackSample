@@ -9,16 +9,19 @@ import io.reactivex.schedulers.Schedulers
 import me.fabiooliveira.androidjetpacksample.entity.Person
 import me.fabiooliveira.androidjetpacksample.repository.PersonRepository
 
-class PersonViewModel(private val repository: PersonRepository) : ViewModel() {
-    val personListMutableLive = MutableLiveData<List<Person>>()
-
+class PersonAddViewModel(private val repository: PersonRepository) : ViewModel() {
+    val longMutableLive = MutableLiveData<Long>()
     private val compositeDisposable = CompositeDisposable()
 
-    init {
-        compositeDisposable.add(repository.getAll()
+    fun isFieldEmpty(text: String): Boolean {
+        return text.isBlank()
+    }
+
+    fun savePerson(person: Person) {
+        compositeDisposable.add(Observable.fromCallable { repository.createPerson(person) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe{personListMutableLive.postValue(it)})
+                .subscribe {longMutableLive.postValue(it)})
     }
 
     fun onDestroy() {
