@@ -40,8 +40,8 @@ class PersonBinderAdapter: RecyclerView.Adapter<PersonBinderAdapter.PersonBinder
         fun ImageView.loadImage(imageUrl: String) {
             Picasso.get()
                     .load(imageUrl)
-                    .placeholder(R.drawable.abc_ab_share_pack_mtrl_alpha)
-                    .error(R.drawable.abc_ic_go_search_api_material)
+                    .placeholder(R.color.colorPrimaryDark)
+                    .error(R.drawable.img_error_avatar)
                     .into(this)
         }
     }
