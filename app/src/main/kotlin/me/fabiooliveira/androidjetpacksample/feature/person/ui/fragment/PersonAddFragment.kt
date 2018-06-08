@@ -16,6 +16,9 @@ import me.fabiooliveira.androidjetpacksample.R
 import me.fabiooliveira.androidjetpacksample.entity.Person
 import me.fabiooliveira.androidjetpacksample.feature.person.viewModel.PersonAddViewModel
 import javax.inject.Inject
+import android.support.v7.app.AppCompatActivity
+
+
 
 class PersonAddFragment : Fragment() {
 
@@ -36,6 +39,7 @@ class PersonAddFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
         initListeners()
     }
 
@@ -51,6 +55,9 @@ class PersonAddFragment : Fragment() {
     }
 
     private fun initListeners(){
+        toolbar.setNavigationOnClickListener {
+            goBack()
+        }
         bv_addPerson.setOnClickListener {
             savePerson()
         }
@@ -65,11 +72,15 @@ class PersonAddFragment : Fragment() {
             viewModel.savePerson(person)
             viewModel.longMutableLive.observe(this, Observer {
                 Toast.makeText(activity, id, Toast.LENGTH_SHORT).show()
-                Navigation.findNavController(view!!).navigate(R.id.action_personAddFragment_to_personFragment)
+                goBack()
             })
         } else {
-            Toast.makeText(activity, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, activity?.resources?.getString(R.string.person_add_toast_error_required), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun goBack(){
+        Navigation.findNavController(view!!).navigate(R.id.action_personAddFragment_to_personFragment)
     }
 
 }
