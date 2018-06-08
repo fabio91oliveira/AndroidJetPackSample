@@ -3,6 +3,7 @@ package me.fabiooliveira.androidjetpacksample.di.component
 import android.app.Application
 import dagger.Component
 import me.fabiooliveira.androidjetpacksample.di.module.MainApplicationModule
+import me.fabiooliveira.androidjetpacksample.di.module.RepositoryModule
 import me.fabiooliveira.androidjetpacksample.di.module.RoomModule
 import me.fabiooliveira.androidjetpacksample.feature.person.ui.fragment.PersonAddFragment
 import me.fabiooliveira.androidjetpacksample.feature.person.ui.fragment.PersonFragment
@@ -12,7 +13,7 @@ import me.fabiooliveira.androidjetpacksample.repository.PersonRepository
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [(MainApplicationModule::class), (RoomModule::class)])
+@Component(modules = [(MainApplicationModule::class), (RoomModule::class), (RepositoryModule::class)])
 interface MainApplicationComponent {
     fun inject(personFragment: PersonFragment)
     fun inject(personAddFragment: PersonAddFragment)

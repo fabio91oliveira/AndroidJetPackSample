@@ -16,26 +16,49 @@
         android:background="@color/colorPrimary"/>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/tl_imageUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/ti_imageUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/person_add_tv_image"
+            android:textSize="@dimen/person_list_item_hint_tv_size"
+            android:singleLine="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_imageUrl">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/ti_personId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/person_add_tv_id"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/person_list_item_hint_tv_size"
+            android:singleLine="true" />
     </android.support.design.widget.TextInputLayout>
 
 
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -43,13 +66,15 @@
         android:layout_marginRight="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/tl_id">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/ti_personName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/person_add_tv_name" />
+            android:hint="@string/person_add_tv_name"
+            android:textSize="@dimen/person_list_item_hint_tv_size"
+            android:singleLine="true" />
 
     </android.support.design.widget.TextInputLayout>
 

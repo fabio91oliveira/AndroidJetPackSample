@@ -7,6 +7,7 @@ buildscript {
         rx_android_version = '2.0.2'
         dagger_version = '2.16'
         navigation_version = '1.0.0-alpha02'
+        picasso_version = '2.71828'
     }
     repositories {
         google()

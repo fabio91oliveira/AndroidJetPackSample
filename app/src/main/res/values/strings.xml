@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">AndroidJetPackSample</string>
+    <string name="person_add_tv_image">Profile Url Image</string>
     <string name="person_add_tv_id">Identification</string>
     <string name="person_add_tv_name">Name</string>
     <string name="person_add_bv_add_person">Add Person</string>

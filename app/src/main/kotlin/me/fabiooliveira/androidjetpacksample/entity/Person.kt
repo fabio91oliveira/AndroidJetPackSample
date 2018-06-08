@@ -7,4 +7,5 @@ import android.arch.persistence.room.PrimaryKey
 data class Person(
         @PrimaryKey
         val id: String,
+        val urlImage: String,
         val name: String)

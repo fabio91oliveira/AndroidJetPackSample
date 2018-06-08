@@ -4,6 +4,7 @@ import android.app.Application
 import me.fabiooliveira.androidjetpacksample.di.component.DaggerMainApplicationComponent
 import me.fabiooliveira.androidjetpacksample.di.component.MainApplicationComponent
 import me.fabiooliveira.androidjetpacksample.di.module.MainApplicationModule
+import me.fabiooliveira.androidjetpacksample.di.module.RepositoryModule
 import me.fabiooliveira.androidjetpacksample.di.module.RoomModule
 
 class MainApplication: Application() {
@@ -17,6 +18,7 @@ class MainApplication: Application() {
                 .builder()
                 .mainApplicationModule(MainApplicationModule(this))
                 .roomModule(RoomModule(this))
+                .repositoryModule(RepositoryModule())
                 .build()
     }
 

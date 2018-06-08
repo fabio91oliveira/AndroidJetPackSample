@@ -12,23 +12,17 @@ import me.fabiooliveira.androidjetpacksample.feature.person.viewModel.ViewModelF
 import me.fabiooliveira.androidjetpacksample.repository.PersonRepository
 
 @Module
-class RoomModule (application: Application) {
-
-    private val database: Database = Room.databaseBuilder(
-            application,
-            Database::class.java,
-            "Person.db"
-    ).build()
+class RepositoryModule {
 
     @Provides
     @Singleton
-    fun providePersonDatabase(): Database {
-        return database
+    fun providePersonRepository(personDao: PersonDao): PersonRepository{
+        return PersonRepository(personDao)
     }
 
     @Provides
     @Singleton
-    fun providePersonDao(database: Database): PersonDao{
-        return database.personDao()
+    fun provideViewModelFactory(repository: PersonRepository): ViewModelProvider.Factory {
+        return ViewModelFactory(repository)
     }
 }

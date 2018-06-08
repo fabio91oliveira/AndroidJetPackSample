@@ -8,8 +8,8 @@
     tools:context=".feature.person.ui.fragment.PersonFragment">
 
     <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -24,8 +24,8 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_person"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/person_list_item"/>
+            android:layout_height="match_parent"
+            tools:listitem="@layout/person_list_item" />
 
     </android.support.v4.widget.NestedScrollView>
 
