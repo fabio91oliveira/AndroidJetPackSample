@@ -30,6 +30,7 @@ class PersonFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initDagger()
+        viewModel.onCreate()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

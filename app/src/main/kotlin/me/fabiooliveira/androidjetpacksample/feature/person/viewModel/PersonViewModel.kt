@@ -14,7 +14,7 @@ class PersonViewModel(private val repository: PersonRepository) : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
 
-    init {
+    fun onCreate() {
         compositeDisposable.add(repository.getAll()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
