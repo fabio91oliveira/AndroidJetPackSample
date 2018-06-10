@@ -4,8 +4,8 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "persons")
-data class Person(
-        @PrimaryKey
-        val id: String,
-        val urlImage: String,
-        val name: String)
+data class Person(val name: String,
+        val description: String,
+        val avatar: Int) {
+        @PrimaryKey(autoGenerate = true) var id: Long = 0
+}

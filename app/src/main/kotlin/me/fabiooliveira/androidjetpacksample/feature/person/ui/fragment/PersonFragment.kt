@@ -40,6 +40,7 @@ class PersonFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        showLoading()
         initAdapter()
         initRecyclerView()
         initListeners()
@@ -67,7 +68,7 @@ class PersonFragment : Fragment() {
     }
 
     private fun initListeners(){
-        bv_addPerson.setOnClickListener {
+        bv_savePerson.setOnClickListener {
             Navigation.findNavController(view!!).navigate(R.id.action_personFragment_to_personAddFragment)
         }
     }
@@ -77,8 +78,19 @@ class PersonFragment : Fragment() {
             it?.run {
                 personBinderAdapter.personList = it
                 personBinderAdapter.notifyDataSetChanged()
+                hideLoading()
             }
         })
+    }
+
+    private fun showLoading(){
+        ns_scrollView.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading(){
+        ns_scrollView.visibility = View.VISIBLE
+        progressBar.visibility = View.GONE
     }
 
 }

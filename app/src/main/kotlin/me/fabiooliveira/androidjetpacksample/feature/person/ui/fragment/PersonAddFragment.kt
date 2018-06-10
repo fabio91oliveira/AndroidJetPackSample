@@ -18,14 +18,18 @@ import me.fabiooliveira.androidjetpacksample.entity.Person
 import me.fabiooliveira.androidjetpacksample.feature.person.viewModel.PersonAddViewModel
 import javax.inject.Inject
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
+import me.fabiooliveira.androidjetpacksample.feature.person.ui.adapter.AvatarBinderAdapter
 
 class PersonAddFragment : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory).get(PersonAddViewModel::class.java) }
+
+    private var selectedAvatar: Int = R.drawable.img_error_avatar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +43,8 @@ class PersonAddFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        initToolbar()
+        initRecyclerView()
         initListeners()
     }
 
@@ -59,18 +64,38 @@ class PersonAddFragment : Fragment() {
             hideKeyboard()
             goBack()
         }
-        bv_addPerson.setOnClickListener {
+        bv_savePerson.setOnClickListener {
             savePerson()
         }
     }
 
-    private fun savePerson(){
-        val idText = ti_personId.text.toString()
-        val imageUrl = ti_imageUrl.text.toString()
-        val nameText = ti_personName.text.toString()
+    private fun initToolbar(){
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
+    }
 
-        if(!viewModel.isFieldEmpty(idText) && !viewModel.isFieldEmpty(nameText)) {
-            val person = Person(idText, imageUrl, nameText)
+    private fun initRecyclerView(){
+        val avatarList = mutableListOf<Int>()
+        avatarList.add(R.drawable.avatar_1)
+        avatarList.add(R.drawable.avatar_2)
+        avatarList.add(R.drawable.avatar_3)
+        avatarList.add(R.drawable.avatar_4)
+
+        val avatarBinderAdapter = AvatarBinderAdapter(avatarList)
+        rv_avatar.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        rv_avatar.adapter = avatarBinderAdapter
+
+        avatarBinderAdapter.setOnAvatarClickListener( AdapterView.OnItemClickListener { _, _ , position, _ ->
+            selectedAvatar = avatarList[position]
+        })
+    }
+
+    private fun savePerson(){
+        val personNameText = ti_personName.text.toString()
+        val personDescriptionText = ti_personDescription.text.toString()
+
+        if(!viewModel.isFieldEmpty(personNameText) && !viewModel.isFieldEmpty(personDescriptionText)) {
+            val person = Person(personNameText, personDescriptionText, selectedAvatar)
             viewModel.savePerson(person)
             viewModel.longMutableLive.observe(this, Observer {
                 Toast.makeText(activity, id, Toast.LENGTH_SHORT).show()
@@ -85,8 +110,7 @@ class PersonAddFragment : Fragment() {
     }
 
     private fun hideKeyboard(){
-        val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view?.windowToken, 0)
+        (activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
 }

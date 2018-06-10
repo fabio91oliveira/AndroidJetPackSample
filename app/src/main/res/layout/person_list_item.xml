@@ -17,6 +17,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="10dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:stateListAnimator="@anim/animation"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,8 +38,10 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                app:imageUrl="@{person.urlImage}"
-                tools:ignore="contentDescription"
+                app:avatar="@{person.avatar}"
+                tools:ignore="VectorDrawableCompat,contentDescription"
+                app:srcCompat="@drawable/circle_avatar"
+                tools:srcCompat="@drawable/circle_avatar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +54,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:text="@{person.name}"
-                android:textSize="@dimen/person_list_item_tv_size"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/person_list_item_tv_title_size"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 app:layout_constraintStart_toEndOf="@+id/iv_imagePerson"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,14 +64,18 @@
                 android:id="@+id/tv_personId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:text="@{person.id}"
-                android:textSize="@dimen/person_list_item_tv_id_size"
+                android:text="@{person.description}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="@color/colorPrimaryDarker"
+                android:textSize="@dimen/person_list_item_tv_description_size"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/iv_imagePerson"
+                app:layout_constraintTop_toBottomOf="@+id/tv_personName" />
 
         </android.support.constraint.ConstraintLayout>
 

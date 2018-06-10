@@ -33,13 +33,12 @@ class PersonBinderAdapter: RecyclerView.Adapter<PersonBinderAdapter.PersonBinder
         holder.bind(person)
     }
 
-
     object BindingAdapters {
-        @BindingAdapter("imageUrl")
+        @BindingAdapter("avatar")
         @JvmStatic
-        fun ImageView.loadImage(imageUrl: String) {
+        fun ImageView.loadImage(avatar: Int) {
             Picasso.get()
-                    .load(imageUrl)
+                    .load(avatar)
                     .placeholder(R.color.colorPrimaryDark)
                     .error(R.drawable.img_error_avatar)
                     .into(this)

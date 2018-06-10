@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AndroidJetPackSample</string>
-    <string name="person_add_tv_image">Profile Url Image</string>
-    <string name="person_add_tv_id">Identification</string>
-    <string name="person_add_tv_name">Name</string>
-    <string name="person_add_bv_add_person">Add Person</string>
+    <string name="person_add_tv_name_person">Name</string>
+    <string name="person_add_tv_description_person">Description</string>
+    <string name="person_add_bv_save_person">Save Person</string>
+    <string name="person_add_tv_selectAvatar">Select your avatar</string>
     <string name="person_add_toast_error_required">All fields are required!</string>
 </resources>

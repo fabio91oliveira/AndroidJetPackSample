@@ -15,81 +15,116 @@
         app:titleTextColor="@color/colorWhite"
         android:background="@color/colorPrimary"/>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tl_imageUrl"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="15dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/ti_imageUrl"
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/person_add_tv_image"
-            android:textSize="@dimen/person_list_item_hint_tv_size"
-            android:singleLine="true" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_height="match_parent">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tl_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tl_imageUrl">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tl_namePerson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginRight="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/ti_personId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/person_add_tv_id"
-            android:inputType="numberDecimal"
-            android:textSize="@dimen/person_list_item_hint_tv_size"
-            android:singleLine="true" />
-    </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/ti_personName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/person_add_tv_name_person"
+                    android:singleLine="true"
+                    android:textSize="@dimen/person_add_hint_tv_size" />
+            </android.support.design.widget.TextInputLayout>
 
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tl_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tl_id">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tl_descriptionPerson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tl_namePerson">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/ti_personName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/person_add_tv_name"
-            android:textSize="@dimen/person_list_item_hint_tv_size"
-            android:singleLine="true" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/ti_personDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/person_add_tv_description_person"
+                    android:singleLine="true"
+                    android:textSize="@dimen/person_add_hint_tv_size" />
 
-    </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/bv_addPerson"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/person_add_bv_add_person"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tv_selectAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/person_add_tv_selectAvatar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tl_descriptionPerson" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_selectAvatar"
+                tools:listitem="@layout/avatar_list_item"/>
+
+            <Button
+                android:id="@+id/bv_savePerson"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/rounded_button"
+                android:text="@string/person_add_bv_save_person"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_avatar"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.constraint.ConstraintLayout>
