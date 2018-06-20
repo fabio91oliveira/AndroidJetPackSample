@@ -1,29 +1,17 @@
 buildscript {
-    ext {
-        kotlin_version = '1.2.41'
-        lifecycle_version = '1.1.1'
-        room_version = '1.1.0'
-        rx_java_version = '2.1.14'
-        rx_android_version = '2.0.2'
-        dagger_version = '2.16'
-        navigation_version = '1.0.0-alpha02'
-        picasso_version = '2.71828'
+    apply from: 'versions.gradle'
+    addRepos(repositories)
+    dependencies {
+        classpath deps.android_gradle_plugin
+        classpath deps.kotlin.plugin
     }
     repositories {
         google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-alpha17'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
+    addRepos(repositories)
 }
 
 task clean(type: Delete) {
