@@ -1,4 +1,4 @@
-# Android JetPack - v1.1
+# Android JetPack
 
 
 Using for now:
